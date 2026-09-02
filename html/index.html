@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfolio</title>
+
+<!-- Tailwind CSS (CDN) -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Script JS (thème, config Tailwind, nav active) -->
+<script src="script.js"></script>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+  .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  /* Effet glassmorphism pour la pill nav */
+  .nav-glass {
+    background: rgba(247, 245, 240, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(27, 29, 34, 0.08);
+  }
+  .dark .nav-glass {
+    background: rgba(20, 22, 27, 0.72);
+    border: 1px solid rgba(242, 240, 234, 0.08);
+  }
+
+  /* Lien nav actif : soulignement animé (desktop/tablette) */
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    height: 2px;
+    background: #E8A33D;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+  .nav-link.active::after,
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Icône nav active/hover (mobile) */
+  .nav-icon.active,
+  .nav-icon:hover {
+    color: #E8A33D;
+  }
+</style>
+</head>
+
+<body class="bg-cream dark:bg-night text-ink dark:text-fog font-body transition-colors duration-300 min-h-screen">
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <!-- Desktop / Tablette : pill en haut, centrée, texte visible -->
+  <!-- Mobile : pill en bas, centrée, icônes visibles -->
+
+  <nav
+    id="main-nav"
+    class="nav-glass fixed z-50 rounded-full shadow-lg shadow-black/5
+           bottom-5 left-1/2 -translate-x-1/2
+           md:bottom-auto md:top-5"
+  >
+    <ul class="flex items-center gap-1 px-2 py-2 md:gap-2 md:px-3">
+
+      <!-- Toggle thème -->
+      <li>
+        <button
+          id="theme-toggle"
+          type="button"
+          aria-label="Changer de thème"
+          class="nav-icon flex items-center justify-center w-11 h-11 rounded-full text-ink/70 dark:text-fog/70 hover:bg-ink/5 dark:hover:bg-fog/10 transition-colors"
+        >
+          <!-- Icône soleil (mode clair actif) -->
+          <svg id="icon-sun" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path stroke-linecap="round" d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+          </svg>
+          <!-- Icône lune (mode sombre actif) -->
+          <svg id="icon-moon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+          </svg>
+        </button>
+      </li>
+
+      <li class="w-px h-6 bg-ink/10 dark:bg-fog/10 mx-1"></li>
+
+      <!-- Accueil -->
+      <li>
+        <a href="#accueil" data-target="accueil" class="nav-link nav-item active flex items-center justify-center md:justify-start gap-2 w-11 h-11 md:w-auto md:h-auto md:px-3 md:py-2 rounded-full text-ink/70 dark:text-fog/70 hover:bg-ink/5 dark:hover:bg-fog/10 md:hover:bg-transparent transition-colors">
+          <svg class="nav-icon w-5 h-5 md:hidden" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 11.5L12 4l9 7.5M5 10v9a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1v-9" />
+          </svg>
+          <span class="hidden md:inline text-sm font-medium font-display">Accueil</span>
+        </a>
+      </li>
+
+      <!-- À propos -->
+      <li>
+        <a href="#apropos" data-target="apropos" class="nav-link nav-item flex items-center justify-center md:justify-start gap-2 w-11 h-11 md:w-auto md:h-auto md:px-3 md:py-2 rounded-full text-ink/70 dark:text-fog/70 hover:bg-ink/5 dark:hover:bg-fog/10 md:hover:bg-transparent transition-colors">
+          <svg class="nav-icon w-5 h-5 md:hidden" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <circle cx="12" cy="8" r="3.2" />
+            <path stroke-linecap="round" d="M5 20c1.2-3.5 4-5.2 7-5.2s5.8 1.7 7 5.2" />
+          </svg>
+          <span class="hidden md:inline text-sm font-medium font-display">À propos</span>
+        </a>
+      </li>
+
+      <!-- Projets -->
+      <li>
+        <a href="#projets" data-target="projets" class="nav-link nav-item flex items-center justify-center md:justify-start gap-2 w-11 h-11 md:w-auto md:h-auto md:px-3 md:py-2 rounded-full text-ink/70 dark:text-fog/70 hover:bg-ink/5 dark:hover:bg-fog/10 md:hover:bg-transparent transition-colors">
+          <svg class="nav-icon w-5 h-5 md:hidden" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <rect x="3.5" y="6" width="17" height="13" rx="1.5" />
+            <path stroke-linecap="round" d="M8.5 6V5a1.5 1.5 0 011.5-1.5h4A1.5 1.5 0 0115.5 5v1" />
+          </svg>
+          <span class="hidden md:inline text-sm font-medium font-display">Projets</span>
+        </a>
+      </li>
+
+      <!-- Contact -->
+      <li>
+        <a href="#contact" data-target="contact" class="nav-link nav-item flex items-center justify-center md:justify-start gap-2 w-11 h-11 md:w-auto md:h-auto md:px-3 md:py-2 rounded-full text-ink/70 dark:text-fog/70 hover:bg-ink/5 dark:hover:bg-fog/10 md:hover:bg-transparent transition-colors">
+          <svg class="nav-icon w-5 h-5 md:hidden" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <rect x="3.5" y="5" width="17" height="14" rx="2" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6.5l8 6 8-6" />
+          </svg>
+          <span class="hidden md:inline text-sm font-medium font-display">Contact</span>
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+
+  <!-- ===================== SECTIONS (placeholders) ===================== -->
+
+  <main class="pb-32 md:pb-0">
+    <section id="accueil" class="min-h-screen flex items-center px-6 pt-24 pb-16 md:pt-0 md:pb-0">
+      <div class="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] items-center gap-12 md:gap-16">
+
+        <!-- Texte -->
+        <div class="text-center md:text-left order-2 md:order-1">
+          <p class="font-display text-sm tracking-wide text-amber mb-4">Portfolio</p>
+          <h1 class="font-display text-4xl md:text-6xl font-semibold leading-tight">
+            Christ Mindele
+          </h1>
+          <p class="mt-3 font-display text-lg md:text-2xl text-ink/70 dark:text-fog/70">
+            Développeur web fullstack &amp; graphiste designer
+          </p>
+          <p class="mt-5 text-ink/60 dark:text-fog/60 max-w-md mx-auto md:mx-0">
+            Jeune passionné par l'informatique, je conçois des sites et applications web du design à la mise en production — formé en développement web à Kadea Academy et en design graphique à CECONTEC.
+          </p>
+
+          <div class="mt-8 flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-3">
+            <a href="#contact" class="w-full sm:w-auto text-center px-6 py-3 rounded-full bg-ink dark:bg-fog text-cream dark:text-night font-display font-medium text-sm hover:opacity-90 transition-opacity">
+              Contacte-moi
+            </a>
+            <a href="#projets" class="w-full sm:w-auto text-center px-6 py-3 rounded-full border border-ink/15 dark:border-fog/20 font-display font-medium text-sm hover:bg-ink/5 dark:hover:bg-fog/10 transition-colors">
+              Voir mes projets
+            </a>
+          </div>
+        </div>
+
+        <!-- Photo -->
+        <div class="order-1 md:order-2 flex justify-center md:justify-end">
+          <div class="relative w-52 h-52 md:w-72 md:h-72">
+            <div class="absolute inset-0 rounded-full bg-amber/20 dark:bg-amber/10 translate-x-3 translate-y-3"></div>
+            <div class="relative w-full h-full rounded-full overflow-hidden border border-ink/10 dark:border-fog/10 bg-ink/5 dark:bg-fog/5 flex items-center justify-center">
+              <!-- Remplace ce bloc par une balise <img src="ta-photo.jpg" ...> quand ta photo est prête -->
+              <span class="font-display text-5xl md:text-6xl font-semibold text-ink/30 dark:text-fog/30">CM</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="apropos" class="py-24 md:py-32 px-6">
+      <div class="max-w-4xl mx-auto">
+
+        <p class="font-display text-sm tracking-wide text-amber mb-3 text-center md:text-left">À propos</p>
+        <h2 class="font-display text-3xl md:text-5xl font-semibold text-center md:text-left">Qui je suis</h2>
+
+        <p class="mt-6 text-ink/70 dark:text-fog/70 leading-relaxed text-center md:text-left max-w-2xl">
+          Je m'appelle Christ Mindele, développeur web fullstack et graphiste designer. Passionné par l'informatique depuis mon plus jeune âge, j'aime autant construire des interfaces qui fonctionnent bien que des identités visuelles qui donnent envie de s'y attarder. Mon parcours mêle design et développement : je pars souvent d'une idée graphique pour la transformer en site web fonctionnel, du premier croquis jusqu'à la mise en ligne.
+        </p>
+
+        <!-- ---- Formation & Expérience ---- -->
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+
+          <!-- Formation -->
+          <div>
+            <h3 class="font-display text-xl font-semibold mb-6">Formation professionnelle</h3>
+            <ol class="relative border-l-2 border-ink/15 dark:border-fog/20 pl-7 space-y-9">
+
+              <li class="relative">
+                <span class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-amber ring-4 ring-cream dark:ring-night"></span>
+                <p class="text-xs font-display text-amber tracking-wide">En cours</p>
+                <p class="font-medium mt-1">Formation en développement web</p>
+                <p class="text-sm text-ink/60 dark:text-fog/60">Kadea Academy</p>
+              </li>
+
+              <li class="relative">
+                <span class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-ink/25 dark:bg-fog/25 ring-4 ring-cream dark:ring-night"></span>
+                <p class="text-xs font-display text-ink/50 dark:text-fog/50 tracking-wide">2022</p>
+                <p class="font-medium mt-1">Certificat de participation en design graphique</p>
+                <p class="text-sm text-ink/60 dark:text-fog/60">Centre CECONTEC</p>
+              </li>
+
+              <li class="relative">
+                <span class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-ink/25 dark:bg-fog/25 ring-4 ring-cream dark:ring-night"></span>
+                <p class="text-xs font-display text-ink/50 dark:text-fog/50 tracking-wide">2021</p>
+                <p class="font-medium mt-1">Diplôme d'État en commercial et gestion</p>
+                <p class="text-sm text-ink/60 dark:text-fog/60">Groupe Scolaire Emmaüs</p>
+              </li>
+
+            </ol>
+          </div>
+
+          <!-- Expérience -->
+          <div>
+            <h3 class="font-display text-xl font-semibold mb-6">Expérience professionnelle</h3>
+            <ol class="relative border-l-2 border-ink/15 dark:border-fog/20 pl-7 space-y-9">
+
+              <li class="relative">
+                <span class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-ink/25 dark:bg-fog/25 ring-4 ring-cream dark:ring-night"></span>
+                <p class="text-xs font-display text-ink/50 dark:text-fog/50 tracking-wide">Janvier 2024 — Septembre 2025</p>
+                <p class="font-medium mt-1">Chargé de conception design client</p>
+              </li>
+
+            </ol>
+          </div>
+
+        </div>
+
+        <!-- ---- Compétences techniques ---- -->
+        <div class="mt-16">
+          <h3 class="font-display text-xl font-semibold mb-6 text-center md:text-left">Compétences techniques</h3>
+          <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+            <span class="px-4 py-2 rounded-full border border-ink/15 dark:border-fog/20 text-sm font-medium">Création de logos &amp; chartes graphiques</span>
+            <span class="px-4 py-2 rounded-full border border-ink/15 dark:border-fog/20 text-sm font-medium">Conception de supports de communication</span>
+            <span class="px-4 py-2 rounded-full border border-ink/15 dark:border-fog/20 text-sm font-medium">Conception de sites vitrines</span>
+            <span class="px-4 py-2 rounded-full border border-ink/15 dark:border-fog/20 text-sm font-medium">Création de maquettes web design</span>
+          </div>
+        </div>
+
+        <!-- ---- Outils ---- -->
+        <div class="mt-16">
+          <h3 class="font-display text-xl font-semibold mb-6 text-center md:text-left">Outils</h3>
+          <div class="space-y-5 max-w-xl mx-auto md:mx-0">
+
+            <div class="skill-bar">
+              <p class="text-sm font-medium mb-1.5">Adobe Photoshop</p>
+              <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
+                <div class="skill-fill h-full rounded-full" style="width: 95%; background-color: #31A8FF;"></div>
+              </div>
+            </div>
+
+            <div class="skill-bar">
+              <p class="text-sm font-medium mb-1.5">Adobe Illustrator</p>
+              <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
+                <div class="skill-fill h-full rounded-full" style="width: 85%; background-color: #FF9A00;"></div>
+              </div>
+            </div>
+
+            <div class="skill-bar">
+              <p class="text-sm font-medium mb-1.5">Figma</p>
+              <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
+                <div class="skill-fill h-full rounded-full" style="width: 80%; background-color: #A259FF;"></div>
+              </div>
+            </div>
+
+            <div class="skill-bar">
+              <p class="text-sm font-medium mb-1.5">Visual Studio Code</p>
+              <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
+                <div class="skill-fill h-full rounded-full" style="width: 85%; background-color: #007ACC;"></div>
+              </div>
+            </div>
+
+            <div class="skill-bar">
+              <p class="text-sm font-medium mb-1.5">Git Bash</p>
+              <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
+                <div class="skill-fill h-full rounded-full" style="width: 80%; background-color: #F05033;"></div>
+              </div>
+            </div>
+
+            <div class="skill-bar">
+              <p class="text-sm font-medium mb-1.5">Microsoft Office</p>
+              <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
+                <div class="skill-fill h-full rounded-full" style="width: 85%; background-color: #D83B01;"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ---- Compétences personnelles ---- -->
+        <div class="mt-16">
+          <h3 class="font-display text-xl font-semibold mb-6 text-center md:text-left">Compétences personnelles</h3>
+          <div class="space-y-5 max-w-xl mx-auto md:mx-0">
+
+            <div class="skill-bar">
+              <p class="text-sm font-medium mb-1.5">Travail en équipe</p>
+              <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
+                <div class="skill-fill h-full rounded-full bg-amber" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="skill-bar">
+              <p class="text-sm font-medium mb-1.5">Créativité</p>
+              <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
+                <div class="skill-fill h-full rounded-full bg-amber" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="skill-bar">
+              <p class="text-sm font-medium mb-1.5">Communication</p>
+              <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
+                <div class="skill-fill h-full rounded-full bg-amber" style="width: 85%"></div>
+              </div>
+            </div>
+
+            <div class="skill-bar">
+              <p class="text-sm font-medium mb-1.5">Adaptabilité</p>
+              <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
+                <div class="skill-fill h-full rounded-full bg-amber" style="width: 80%"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="projets" class="min-h-screen flex flex-col items-center justify-center text-center px-6">
+      <p class="font-display text-sm tracking-wide text-amber mb-3">03</p>
+      <h2 class="font-display text-3xl md:text-5xl font-semibold">Section Projets</h2>
+    </section>
+
+    <section id="contact" class="min-h-screen flex flex-col items-center justify-center text-center px-6">
+      <p class="font-display text-sm tracking-wide text-amber mb-3">04</p>
+      <h2 class="font-display text-3xl md:text-5xl font-semibold">Section Contact</h2>
+    </section>
+  </main>
+
+  <script src="/js/index.js"></script>
+</body>
+</html>
