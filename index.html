@@ -65,6 +65,68 @@
   .nav-icon:hover {
     color: #E8A33D;
   }
+
+  /* Badges technos (projets) */
+  .tech-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  /* Filtres projets : bouton actif */
+  .filter-btn.active {
+    background-color: #E8A33D;
+    color: #1B1D22;
+    border-color: #E8A33D;
+  }
+
+  /* Carte projet : masquée par le filtre JS */
+  .project-item {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .project-item.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .project-item.is-fading {
+    opacity: 0;
+    transform: scale(0.96);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .project-item.is-hidden {
+    display: none;
+  }
+
+  /* Zoom léger de l'image au survol de la carte */
+  .project-card:hover img {
+    transform: scale(1.06);
+  }
+  .project-card img {
+    transition: transform 0.5s ease;
+  }
+  .project-card {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .project-card:hover {
+    box-shadow: 0 20px 40px -12px rgba(0,0,0,0.25);
+    transform: translateY(-4px);
+  }
+
+  /* Badge catégorie en coin de photo */
+  .category-tag {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
 </style>
 </head>
 
@@ -277,7 +339,7 @@
             <div class="skill-bar">
               <p class="text-sm font-medium mb-1.5">Adobe Illustrator</p>
               <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
-                <div class="skill-fill h-full rounded-full" style="width: 85%; background-color: #FF9A00;"></div>
+                <div class="skill-fill h-full rounded-full" style="width: 80%; background-color: #FF9A00;"></div>
               </div>
             </div>
 
@@ -305,7 +367,7 @@
             <div class="skill-bar">
               <p class="text-sm font-medium mb-1.5">Microsoft Office</p>
               <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
-                <div class="skill-fill h-full rounded-full" style="width: 85%; background-color: #D83B01;"></div>
+                <div class="skill-fill h-full rounded-full" style="width: 80%; background-color: #D83B01;"></div>
               </div>
             </div>
 
@@ -351,9 +413,191 @@
       </div>
     </section>
 
-    <section id="projets" class="min-h-screen flex flex-col items-center justify-center text-center px-6">
-      <p class="font-display text-sm tracking-wide text-amber mb-3">03</p>
-      <h2 class="font-display text-3xl md:text-5xl font-semibold">Section Projets</h2>
+    <section id="projets" class="py-24 md:py-32 px-6">
+      <div class="max-w-6xl mx-auto">
+
+        <p class="font-display text-sm tracking-wide text-amber mb-3 text-center md:text-left">Projets</p>
+        <h2 class="font-display text-3xl md:text-5xl font-semibold text-center md:text-left">Une sélection de mon travail</h2>
+        <p class="mt-4 text-ink/60 dark:text-fog/60 text-center md:text-left max-w-xl">
+          Un mélange de projets en design graphique et en développement web. Filtre par catégorie pour explorer.
+        </p>
+
+        <!-- Filtres -->
+        <div class="mt-10 flex flex-wrap gap-3 justify-center md:justify-start">
+          <button type="button" class="filter-btn active px-5 py-2.5 rounded-full border border-ink/15 dark:border-fog/20 text-sm font-display font-medium transition-colors" data-filter="all">
+            Tous
+          </button>
+          <button type="button" class="filter-btn px-5 py-2.5 rounded-full border border-ink/15 dark:border-fog/20 text-sm font-display font-medium transition-colors" data-filter="design">
+            Design graphique
+          </button>
+          <button type="button" class="filter-btn px-5 py-2.5 rounded-full border border-ink/15 dark:border-fog/20 text-sm font-display font-medium transition-colors" data-filter="web">
+            Développement web
+          </button>
+        </div>
+
+        <!-- Grille projets -->
+        <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+
+          <!-- Projet 1 — Design -->
+          <div class="project-item" data-category="design">
+            <div class="project-card relative rounded-2xl overflow-hidden aspect-[4/3]">
+              <img src="https://picsum.photos/seed/logo1/800/600" alt="Projet identité visuelle" class="w-full h-full object-cover" />
+              <span class="category-tag absolute top-3 left-3 z-10 px-3 py-1 rounded-full bg-black/40 text-white text-[11px] font-display font-medium tracking-wide">Design</span>
+              <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                <div class="backdrop-blur-md bg-white/10 border border-white/15 rounded-xl p-3 flex items-center justify-between gap-3">
+                  <div class="min-w-0">
+                    <h3 class="text-white font-display font-semibold text-sm truncate">Identité visuelle — Café Lumen</h3>
+                    <p class="text-white/70 text-xs truncate">Logo &amp; charte graphique</p>
+                  </div>
+                  <a href="#" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
+                    Voir le projet
+                    <svg class="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3 flex gap-2 justify-center md:justify-start">
+              <span class="tech-badge" style="background-color:#31A8FF" title="Adobe Photoshop">Ps</span>
+              <span class="tech-badge" style="background-color:#FF9A00" title="Adobe Illustrator">Ai</span>
+            </div>
+          </div>
+
+          <!-- Projet 2 — Web -->
+          <div class="project-item" data-category="web">
+            <div class="project-card relative rounded-2xl overflow-hidden aspect-[4/3]">
+              <img src="https://picsum.photos/seed/webapp1/800/600" alt="Projet site vitrine" class="w-full h-full object-cover" />
+              <span class="category-tag absolute top-3 left-3 z-10 px-3 py-1 rounded-full bg-black/40 text-white text-[11px] font-display font-medium tracking-wide">Web</span>
+              <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                <div class="backdrop-blur-md bg-white/10 border border-white/15 rounded-xl p-3 flex items-center justify-between gap-3">
+                  <div class="min-w-0">
+                    <h3 class="text-white font-display font-semibold text-sm truncate">Site vitrine — Atelier Nova</h3>
+                    <p class="text-white/70 text-xs truncate">Site responsive</p>
+                  </div>
+                  <a href="#" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
+                    Voir le projet
+                    <svg class="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3 flex gap-2 justify-center md:justify-start">
+              <span class="tech-badge" style="background-color:#E34F26" title="HTML5">H</span>
+              <span class="tech-badge" style="background-color:#38BDF8" title="Tailwind CSS">TW</span>
+              <span class="tech-badge" style="background-color:#F7DF1E; color:#1B1D22" title="JavaScript">JS</span>
+            </div>
+          </div>
+
+          <!-- Projet 3 — Design -->
+          <div class="project-item" data-category="design">
+            <div class="project-card relative rounded-2xl overflow-hidden aspect-[4/3]">
+              <img src="https://picsum.photos/seed/mockup1/800/600" alt="Projet maquette web design" class="w-full h-full object-cover" />
+              <span class="category-tag absolute top-3 left-3 z-10 px-3 py-1 rounded-full bg-black/40 text-white text-[11px] font-display font-medium tracking-wide">Design</span>
+              <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                <div class="backdrop-blur-md bg-white/10 border border-white/15 rounded-xl p-3 flex items-center justify-between gap-3">
+                  <div class="min-w-0">
+                    <h3 class="text-white font-display font-semibold text-sm truncate">Maquette — App bancaire</h3>
+                    <p class="text-white/70 text-xs truncate">UI design mobile</p>
+                  </div>
+                  <a href="#" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
+                    Voir le projet
+                    <svg class="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3 flex gap-2 justify-center md:justify-start">
+              <span class="tech-badge" style="background-color:#A259FF" title="Figma">Fi</span>
+            </div>
+          </div>
+
+          <!-- Projet 4 — Web -->
+          <div class="project-item" data-category="web">
+            <div class="project-card relative rounded-2xl overflow-hidden aspect-[4/3]">
+              <img src="https://picsum.photos/seed/webapp2/800/600" alt="Projet application web" class="w-full h-full object-cover" />
+              <span class="category-tag absolute top-3 left-3 z-10 px-3 py-1 rounded-full bg-black/40 text-white text-[11px] font-display font-medium tracking-wide">Web</span>
+              <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                <div class="backdrop-blur-md bg-white/10 border border-white/15 rounded-xl p-3 flex items-center justify-between gap-3">
+                  <div class="min-w-0">
+                    <h3 class="text-white font-display font-semibold text-sm truncate">Clone interface — VidStream</h3>
+                    <p class="text-white/70 text-xs truncate">Interface responsive</p>
+                  </div>
+                  <a href="#" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
+                    Voir le projet
+                    <svg class="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3 flex gap-2 justify-center md:justify-start">
+              <span class="tech-badge" style="background-color:#E34F26" title="HTML5">H</span>
+              <span class="tech-badge" style="background-color:#1572B6" title="CSS3">C</span>
+              <span class="tech-badge" style="background-color:#F7DF1E; color:#1B1D22" title="JavaScript">JS</span>
+            </div>
+          </div>
+
+          <!-- Projet 5 — Design -->
+          <div class="project-item" data-category="design">
+            <div class="project-card relative rounded-2xl overflow-hidden aspect-[4/3]">
+              <img src="https://picsum.photos/seed/poster1/800/600" alt="Projet support de communication" class="w-full h-full object-cover" />
+              <span class="category-tag absolute top-3 left-3 z-10 px-3 py-1 rounded-full bg-black/40 text-white text-[11px] font-display font-medium tracking-wide">Design</span>
+              <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                <div class="backdrop-blur-md bg-white/10 border border-white/15 rounded-xl p-3 flex items-center justify-between gap-3">
+                  <div class="min-w-0">
+                    <h3 class="text-white font-display font-semibold text-sm truncate">Affiche évènementielle</h3>
+                    <p class="text-white/70 text-xs truncate">Support de communication</p>
+                  </div>
+                  <a href="#" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
+                    Voir le projet
+                    <svg class="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3 flex gap-2 justify-center md:justify-start">
+              <span class="tech-badge" style="background-color:#31A8FF" title="Adobe Photoshop">Ps</span>
+              <span class="tech-badge" style="background-color:#FF9A00" title="Adobe Illustrator">Ai</span>
+            </div>
+          </div>
+
+          <!-- Projet 6 — Web -->
+          <div class="project-item" data-category="web">
+            <div class="project-card relative rounded-2xl overflow-hidden aspect-[4/3]">
+              <img src="https://picsum.photos/seed/portfolio1/800/600" alt="Projet portfolio" class="w-full h-full object-cover" />
+              <span class="category-tag absolute top-3 left-3 z-10 px-3 py-1 rounded-full bg-black/40 text-white text-[11px] font-display font-medium tracking-wide">Web</span>
+              <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                <div class="backdrop-blur-md bg-white/10 border border-white/15 rounded-xl p-3 flex items-center justify-between gap-3">
+                  <div class="min-w-0">
+                    <h3 class="text-white font-display font-semibold text-sm truncate">Portfolio personnel</h3>
+                    <p class="text-white/70 text-xs truncate">HTML5 · Tailwind · JS</p>
+                  </div>
+                  <a href="#" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
+                    Voir le projet
+                    <svg class="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3 flex gap-2 justify-center md:justify-start">
+              <span class="tech-badge" style="background-color:#E34F26" title="HTML5">H</span>
+              <span class="tech-badge" style="background-color:#38BDF8" title="Tailwind CSS">TW</span>
+              <span class="tech-badge" style="background-color:#F7DF1E; color:#1B1D22" title="JavaScript">JS</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
 
     <section id="contact" class="min-h-screen flex flex-col items-center justify-center text-center px-6">
@@ -362,6 +606,6 @@
     </section>
   </main>
 
-  <script src="js/index.js"></script>
+  <script src="/js/index.js"></script>
 </body>
 </html>
