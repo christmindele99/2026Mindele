@@ -1,0 +1,9 @@
+dans la partie projets
+
+j'aimerai que tu reflechisse suur ça parce que j'ai deux type de projets 
+en design graphique et en developpement web
+
+que tu mets un filtre à aprtir du js comme ça par defaaut il va afficher presque tout les projets et si la personne clique sur design graphique ça ne lui montre que les projets en design graphique et de meme s'il clique sur developpement web et aussi le premier boutn soit (All) celui qui fera apparaitre tout les projets
+
+chaque projet est dans un cadre avec une photo, un titre et sous-titre et à droit un bouton (Voir le porjet) qui sera cliquable une fois on clique il lu ça dans une nouvelle fenetre
+là se trouvera le titre, sous-titre et bouton de voir le projet (en bas biensur) soit au-dessus de la photo avec l'effet glace et surtout veille à ce que les textes soient lisibles en dessous de chaque projet il doit y avoir les technologies utilisées (soit en design : Photoshop, Illustrator, Figma ) ou en web (HTML, CSS, Tailwind CSS, JS) mais que ça ne soit pas en écrit ça sera les icones de chaque logiciels ou technologies utiliées

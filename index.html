@@ -127,6 +127,65 @@
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }
+
+  /* Système générique d'apparition en fondu au scroll (toutes sections) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-photo {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal-photo.in-view {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Avatar initiale (avis) */
+  .avatar-initial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+  }
+
+  /* Icônes sociales du footer */
+  .social-icon {
+    transition: transform 0.25s ease, background-color 0.25s ease;
+  }
+  .social-icon:hover {
+    transform: translateY(-3px);
+  }
+
+  /* Bouton retour en haut */
+  #back-to-top {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  /* Étoiles de notation (avis) */
+  .star-btn {
+    font-size: 1.25rem;
+    line-height: 1;
+    color: rgba(27, 29, 34, 0.2);
+    transition: color 0.15s ease, transform 0.15s ease;
+  }
+  .dark .star-btn {
+    color: rgba(242, 240, 234, 0.2);
+  }
+  .star-btn.active {
+    color: #E8A33D;
+  }
+  .star-btn:hover {
+    transform: scale(1.15);
+  }
 </style>
 </head>
 
@@ -220,18 +279,18 @@
 
         <!-- Texte -->
         <div class="text-center md:text-left order-2 md:order-1">
-          <p class="font-display text-sm tracking-wide text-amber mb-4">Portfolio</p>
-          <h1 class="font-display text-4xl md:text-6xl font-semibold leading-tight">
+          <p class="reveal font-display text-sm tracking-wide text-amber mb-4">Portfolio</p>
+          <h1 class="reveal font-display text-4xl md:text-6xl font-semibold leading-tight">
             Christ Mindele
           </h1>
-          <p class="mt-3 font-display text-lg md:text-2xl text-ink/70 dark:text-fog/70">
+          <p class="reveal mt-3 font-display text-lg md:text-2xl text-ink/70 dark:text-fog/70">
             Développeur web fullstack &amp; graphiste designer
           </p>
-          <p class="mt-5 text-ink/60 dark:text-fog/60 max-w-md mx-auto md:mx-0">
+          <p class="reveal mt-5 text-ink/60 dark:text-fog/60 max-w-md mx-auto md:mx-0">
             Jeune passionné par l'informatique, je conçois des sites et applications web du design à la mise en production — formé en développement web à Kadea Academy et en design graphique à CECONTEC.
           </p>
 
-          <div class="mt-8 flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-3">
+          <div class="reveal mt-8 flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-3">
             <a href="#contact" class="w-full sm:w-auto text-center px-6 py-3 rounded-full bg-ink dark:bg-fog text-cream dark:text-night font-display font-medium text-sm hover:opacity-90 transition-opacity">
               Contacte-moi
             </a>
@@ -242,7 +301,7 @@
         </div>
 
         <!-- Photo -->
-        <div class="order-1 md:order-2 flex justify-center md:justify-end">
+        <div class="reveal-photo order-1 md:order-2 flex justify-center md:justify-end">
           <div class="relative w-52 h-52 md:w-72 md:h-72">
             <div class="absolute inset-0 rounded-full bg-amber/20 dark:bg-amber/10 translate-x-3 translate-y-3"></div>
             <div class="relative w-full h-full rounded-full overflow-hidden border border-ink/10 dark:border-fog/10 bg-ink/5 dark:bg-fog/5 flex items-center justify-center">
@@ -258,10 +317,10 @@
     <section id="apropos" class="py-24 md:py-32 px-6">
       <div class="max-w-4xl mx-auto">
 
-        <p class="font-display text-sm tracking-wide text-amber mb-3 text-center md:text-left">À propos</p>
-        <h2 class="font-display text-3xl md:text-5xl font-semibold text-center md:text-left">Qui je suis</h2>
+        <p class="reveal font-display text-sm tracking-wide text-amber mb-3 text-center md:text-left">À propos</p>
+        <h2 class="reveal font-display text-3xl md:text-5xl font-semibold text-center md:text-left">Qui je suis</h2>
 
-        <p class="mt-6 text-ink/70 dark:text-fog/70 leading-relaxed text-center md:text-left max-w-2xl">
+        <p class="reveal mt-6 text-ink/70 dark:text-fog/70 leading-relaxed text-center md:text-left max-w-2xl">
           Je m'appelle Christ Mindele, développeur web fullstack et graphiste designer. Passionné par l'informatique depuis mon plus jeune âge, j'aime autant construire des interfaces qui fonctionnent bien que des identités visuelles qui donnent envie de s'y attarder. Mon parcours mêle design et développement : je pars souvent d'une idée graphique pour la transformer en site web fonctionnel, du premier croquis jusqu'à la mise en ligne.
         </p>
 
@@ -269,7 +328,7 @@
         <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
 
           <!-- Formation -->
-          <div>
+          <div class="reveal">
             <h3 class="font-display text-xl font-semibold mb-6">Formation professionnelle</h3>
             <ol class="relative border-l-2 border-ink/15 dark:border-fog/20 pl-7 space-y-9">
 
@@ -298,7 +357,7 @@
           </div>
 
           <!-- Expérience -->
-          <div>
+          <div class="reveal">
             <h3 class="font-display text-xl font-semibold mb-6">Expérience professionnelle</h3>
             <ol class="relative border-l-2 border-ink/15 dark:border-fog/20 pl-7 space-y-9">
 
@@ -314,7 +373,7 @@
         </div>
 
         <!-- ---- Compétences techniques ---- -->
-        <div class="mt-16">
+        <div class="reveal mt-16">
           <h3 class="font-display text-xl font-semibold mb-6 text-center md:text-left">Compétences techniques</h3>
           <div class="flex flex-wrap gap-3 justify-center md:justify-start">
             <span class="px-4 py-2 rounded-full border border-ink/15 dark:border-fog/20 text-sm font-medium">Création de logos &amp; chartes graphiques</span>
@@ -325,7 +384,7 @@
         </div>
 
         <!-- ---- Outils ---- -->
-        <div class="mt-16">
+        <div class="reveal mt-16">
           <h3 class="font-display text-xl font-semibold mb-6 text-center md:text-left">Outils</h3>
           <div class="space-y-5 max-w-xl mx-auto md:mx-0">
 
@@ -375,7 +434,7 @@
         </div>
 
         <!-- ---- Compétences personnelles ---- -->
-        <div class="mt-16">
+        <div class="reveal mt-16">
           <h3 class="font-display text-xl font-semibold mb-6 text-center md:text-left">Compétences personnelles</h3>
           <div class="space-y-5 max-w-xl mx-auto md:mx-0">
 
@@ -416,14 +475,14 @@
     <section id="projets" class="py-24 md:py-32 px-6">
       <div class="max-w-6xl mx-auto">
 
-        <p class="font-display text-sm tracking-wide text-amber mb-3 text-center md:text-left">Projets</p>
-        <h2 class="font-display text-3xl md:text-5xl font-semibold text-center md:text-left">Une sélection de mon travail</h2>
-        <p class="mt-4 text-ink/60 dark:text-fog/60 text-center md:text-left max-w-xl">
+        <p class="reveal font-display text-sm tracking-wide text-amber mb-3 text-center md:text-left">Projets</p>
+        <h2 class="reveal font-display text-3xl md:text-5xl font-semibold text-center md:text-left">Une sélection de mon travail</h2>
+        <p class="reveal mt-4 text-ink/60 dark:text-fog/60 text-center md:text-left max-w-xl">
           Un mélange de projets en design graphique et en développement web. Filtre par catégorie pour explorer.
         </p>
 
         <!-- Filtres -->
-        <div class="mt-10 flex flex-wrap gap-3 justify-center md:justify-start">
+        <div class="reveal mt-10 flex flex-wrap gap-3 justify-center md:justify-start">
           <button type="button" class="filter-btn active px-5 py-2.5 rounded-full border border-ink/15 dark:border-fog/20 text-sm font-display font-medium transition-colors" data-filter="all">
             Tous
           </button>
@@ -467,7 +526,7 @@
           <!-- Projet 2 — Web -->
           <div class="project-item" data-category="web">
             <div class="project-card relative rounded-2xl overflow-hidden aspect-[4/3]">
-              <img src="assets/Kadea-chat.png" alt="Projet Application web" class="w-full h-full object-cover" />
+              <img src="https://picsum.photos/seed/webapp1/800/600" alt="Projet site vitrine" class="w-full h-full object-cover" />
               <span class="category-tag absolute top-3 left-3 z-10 px-3 py-1 rounded-full bg-black/40 text-white text-[11px] font-display font-medium tracking-wide">Web</span>
               <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
                 <div class="backdrop-blur-md bg-white/10 border border-white/15 rounded-xl p-3 flex items-center justify-between gap-3">
@@ -475,7 +534,7 @@
                     <h3 class="text-white font-display font-semibold text-sm truncate">Site vitrine — Atelier Nova</h3>
                     <p class="text-white/70 text-xs truncate">Site responsive</p>
                   </div>
-                  <a href="https://christmindele99.github.io/deploiement-clone-whatsapp/" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
+                  <a href="#" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
                     Voir le projet
                     <svg class="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
@@ -572,7 +631,7 @@
           <!-- Projet 6 — Web -->
           <div class="project-item" data-category="web">
             <div class="project-card relative rounded-2xl overflow-hidden aspect-[4/3]">
-              <img src="https://picsum.photos/seed/portfolio1/800/600" alt="Projet portfolio" class="w-full h-full object-cover" />
+              <img src="assets/Kadea-chat.png" alt="Projet portfolio" class="w-full h-full object-cover" />
               <span class="category-tag absolute top-3 left-3 z-10 px-3 py-1 rounded-full bg-black/40 text-white text-[11px] font-display font-medium tracking-wide">Web</span>
               <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
                 <div class="backdrop-blur-md bg-white/10 border border-white/15 rounded-xl p-3 flex items-center justify-between gap-3">
@@ -580,7 +639,7 @@
                     <h3 class="text-white font-display font-semibold text-sm truncate">Portfolio personnel</h3>
                     <p class="text-white/70 text-xs truncate">HTML5 · Tailwind · JS</p>
                   </div>
-                  <a href="#" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
+                  <a href="https://christmindele99.github.io/deploiement-clone-whatsapp/" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
                     Voir le projet
                     <svg class="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
@@ -600,12 +659,130 @@
       </div>
     </section>
 
-    <section id="contact" class="min-h-screen flex flex-col items-center justify-center text-center px-6">
-      <p class="font-display text-sm tracking-wide text-amber mb-3">04</p>
-      <h2 class="font-display text-3xl md:text-5xl font-semibold">Section Contact</h2>
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact" class="py-24 md:py-32 px-6">
+      <div class="max-w-5xl mx-auto">
+
+        <p class="reveal font-display text-sm tracking-wide text-amber mb-3 text-center md:text-left">Contact</p>
+        <h2 class="reveal font-display text-3xl md:text-5xl font-semibold text-center md:text-left">Discutons de votre projet</h2>
+        <p class="reveal mt-4 text-ink/60 dark:text-fog/60 text-center md:text-left max-w-xl">
+          Un projet en tête, une question, ou juste envie d'échanger ? Écris-moi, je réponds généralement sous 24 à 48h.
+        </p>
+
+        <!-- ---- Formulaire de contact ---- -->
+        <div class="reveal mt-12 max-w-2xl mx-auto md:mx-0">
+          <form id="contact-form" class="space-y-5" novalidate>
+
+            <div>
+              <label for="cf-name" class="block text-sm font-medium mb-1.5">Nom</label>
+              <input
+                id="cf-name" name="name" type="text" required placeholder="Votre nom"
+                class="w-full px-4 py-3 rounded-xl bg-ink/5 dark:bg-fog/5 border border-ink/10 dark:border-fog/15 focus:outline-none focus:ring-2 focus:ring-amber/60 transition-shadow placeholder:text-ink/40 dark:placeholder:text-fog/40"
+              />
+            </div>
+
+            <div>
+              <label for="cf-email" class="block text-sm font-medium mb-1.5">Email</label>
+              <input
+                id="cf-email" name="email" type="email" required placeholder="vous@gmail.com"
+                class="w-full px-4 py-3 rounded-xl bg-ink/5 dark:bg-fog/5 border border-ink/10 dark:border-fog/15 focus:outline-none focus:ring-2 focus:ring-amber/60 transition-shadow placeholder:text-ink/40 dark:placeholder:text-fog/40"
+              />
+            </div>
+
+            <div>
+              <label for="cf-message" class="block text-sm font-medium mb-1.5">Message</label>
+              <textarea
+                id="cf-message" name="message" rows="5" required placeholder="Parlez-moi de votre projet..."
+                class="w-full px-4 py-3 rounded-xl bg-ink/5 dark:bg-fog/5 border border-ink/10 dark:border-fog/15 focus:outline-none focus:ring-2 focus:ring-amber/60 transition-shadow resize-none placeholder:text-ink/40 dark:placeholder:text-fog/40"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-ink dark:bg-fog text-cream dark:text-night font-display font-medium text-sm hover:opacity-90 transition-opacity"
+            >
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 004.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.81-.11a16.6 16.6 0 01-1.63-.6c-2.87-1.24-4.74-4.13-4.89-4.32-.14-.2-1.17-1.56-1.17-2.97 0-1.41.74-2.1 1-2.39.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.14-.28.29-.12.57.16.28.71 1.18 1.53 1.91 1.05.94 1.94 1.24 2.22 1.38.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.19-.28.37-.23.62-.14.26.09 1.63.77 1.91.91.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/>
+              </svg>
+              Envoyer sur WhatsApp
+            </button>
+
+            <p id="cf-feedback" class="text-sm text-amber hidden"></p>
+          </form>
+        </div>
+
+        <!-- ---- Avis ---- -->
+        <div class="reveal mt-24 md:mt-32">
+          <p class="font-display text-sm tracking-wide text-amber mb-3 text-center md:text-left">Avis</p>
+          <h3 class="font-display text-2xl md:text-4xl font-semibold text-center md:text-left">Ce qu'on dit de mon travail</h3>
+
+          <!-- Laisser un avis -->
+          <form id="review-form" class="mt-8 max-w-2xl mx-auto md:mx-0 p-6 rounded-2xl bg-ink/5 dark:bg-fog/5 border border-ink/10 dark:border-fog/15 space-y-4" novalidate>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <input
+                id="rf-name" name="name" type="text" required placeholder="Votre nom"
+                class="w-full px-4 py-2.5 rounded-xl bg-cream dark:bg-night border border-ink/10 dark:border-fog/15 focus:outline-none focus:ring-2 focus:ring-amber/60 transition-shadow placeholder:text-ink/40 dark:placeholder:text-fog/40"
+              />
+              <!-- Note -->
+              <div class="flex items-center gap-1" id="rf-stars" data-rating="5">
+                <span class="text-sm text-ink/50 dark:text-fog/50 mr-2">Note :</span>
+                <button type="button" class="star-btn" data-value="1" aria-label="1 étoile">★</button>
+                <button type="button" class="star-btn" data-value="2" aria-label="2 étoiles">★</button>
+                <button type="button" class="star-btn" data-value="3" aria-label="3 étoiles">★</button>
+                <button type="button" class="star-btn" data-value="4" aria-label="4 étoiles">★</button>
+                <button type="button" class="star-btn" data-value="5" aria-label="5 étoiles">★</button>
+              </div>
+            </div>
+            <textarea
+              id="rf-message" name="message" rows="3" required placeholder="Votre avis sur ma collaboration..."
+              class="w-full px-4 py-2.5 rounded-xl bg-cream dark:bg-night border border-ink/10 dark:border-fog/15 focus:outline-none focus:ring-2 focus:ring-amber/60 transition-shadow resize-none placeholder:text-ink/40 dark:placeholder:text-fog/40"
+            ></textarea>
+            <button type="submit" class="px-6 py-2.5 rounded-full bg-amber text-ink font-display font-medium text-sm hover:opacity-90 transition-opacity">
+              Publier mon avis
+            </button>
+          </form>
+
+          <!-- Liste des avis -->
+          <div id="reviews-list" class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+        </div>
+
+      </div>
     </section>
   </main>
 
-  <script src="js/index.js"></script>
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="border-t border-ink/10 dark:border-fog/10 px-6 py-14 md:py-16">
+    <div class="max-w-5xl mx-auto flex flex-col items-center text-center gap-6">
+
+      <div>
+        <p class="font-display text-lg font-semibold">Christ Mindele</p>
+        <p class="mt-1 text-sm text-ink/60 dark:text-fog/60">Développeur web fullstack &amp; graphiste designer</p>
+      </div>
+
+      <!-- Réseaux -->
+      <div class="flex items-center gap-3">
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-icon tech-badge" style="width:2.75rem;height:2.75rem;border-radius:9999px;background-color:#181717">GH</a>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Behance" class="social-icon tech-badge" style="width:2.75rem;height:2.75rem;border-radius:9999px;background-color:#1769FF">Be</a>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon tech-badge" style="width:2.75rem;height:2.75rem;border-radius:9999px;background-color:#0A66C2">in</a>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon tech-badge" style="width:2.75rem;height:2.75rem;border-radius:9999px;background-color:#25D366">WA</a>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon tech-badge" style="width:2.75rem;height:2.75rem;border-radius:9999px;background-color:#1877F2">f</a>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" class="social-icon tech-badge" style="width:2.75rem;height:2.75rem;border-radius:9999px;background-color:#E60023">P</a>
+      </div>
+
+      <p class="text-xs text-ink/40 dark:text-fog/40">
+        © <span id="footer-year"></span> Christ Mindele — Tous droits réservés.
+      </p>
+
+    </div>
+  </footer>
+
+  <!-- Bouton retour en haut -->
+  <button id="back-to-top" aria-label="Retour en haut" class="fixed bottom-24 md:bottom-6 right-5 z-50 w-11 h-11 rounded-full nav-glass shadow-lg flex items-center justify-center opacity-0 pointer-events-none">
+    <svg class="w-5 h-5 text-ink dark:text-fog" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+
+    <script src="js/index.js"></script>
 </body>
 </html>
