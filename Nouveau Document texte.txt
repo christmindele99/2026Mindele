@@ -7,3 +7,40 @@ que tu mets un filtre à aprtir du js comme ça par defaaut il va afficher presq
 
 chaque projet est dans un cadre avec une photo, un titre et sous-titre et à droit un bouton (Voir le porjet) qui sera cliquable une fois on clique il lu ça dans une nouvelle fenetre
 là se trouvera le titre, sous-titre et bouton de voir le projet (en bas biensur) soit au-dessus de la photo avec l'effet glace et surtout veille à ce que les textes soient lisibles en dessous de chaque projet il doit y avoir les technologies utilisées (soit en design : Photoshop, Illustrator, Figma ) ou en web (HTML, CSS, Tailwind CSS, JS) mais que ça ne soit pas en écrit ça sera les icones de chaque logiciels ou technologies utiliées
+
+
+
+et dans la partie contact mets un container où la personne va renseigner son nom, gmail et un champ pour me laisser un message avec le bouton envoyer(une fois il clique sur envoyer que le message m'arrive sur WhatsApp
+deuxieme section toujours dans contact (et que vous mettez un endroit où les gens pourront laisser leur avis, et juste apres vous afficher les personnes qui ont déjà laissé leurs avis)
+et apres vous constiture un footer (vous remettez la bref desciption qui est sur accueil (bref description après mon nom) et apres vous mettez les icons de mes plateforms(qu'ils soient cliquables, entre autre : GitHub, WhatsApp, LinkedIn, Pinterest, behance,facebook) sur la classfication par ordre de mes icons je te laisse gerer ça.
+
+si constate qu'il y 'a un element qui manque qui peut rendre la section contact pro et moderne tu le mets tout en m'expliquant la demarche et le pourquoi de ça
+
+
+
+--------------MODIFICATION--------------
+dans la partie projet les titres (tous design graphique et developpement web) dans la partie mobile qu'ils soient tous sur la meme ligne(de preference la taille soit un peu reduit pour qu'ils soient lisisbles sans besoin de scroller
+
+dans la partie outils met une couleur unique dans tout les jauges de puissance et tu remets le pourcentage pour signifier la maitrise de chaque outils
+
+dans la partie experience professionnelle met la boule au centre de la barre verticale et que la boule ait une couleur en gras(meme bleu ou orange que tu as mis)
+
+compétences techniques dans la partie mobile met toujours la dispostion de commencer toujours de gacuhe à droite comme les autres et met aussi le pourcentage dans la partie compétences techniques
+
+et dans la partie projet à l'nedroit où c'est ecrit voir le projet juste à coté met aussi l'icone GitHub dans laquelle nous allons mettre le lien ramenant au repos GitHub en ligne
+
+dans la partie accueil là où j'écris developpeur web fullstack & graphiste designer (met ça en orange et que ça écrit developpeur web fullstack il supprime et ensuite il écrit graphiste designer et il repete cette action à l'infini
+ 
+et dans la partie a propos apres experience professionnelle met un bouton (Voir mon CV en PDF) dans laquelle nous allons mettre le fichier pdf de mon cv)
+
+dans la partie formulaire dans la section contact (le bouton envoyer le message sur WhatsApp, tu modifie ça en Envoyer et le message doit directement etre envoyé dans mon compte gmail et non plus WhatsApp et il ne doit pas ouvrir une nouvelle fenetre) mon compte gmail : (christmindele99@gmail.com)
+
+dans la partie avis fais en sorte que si les avis devient >4 qu'il n'affiche que 4 avis par defaut et les autres avis ne soit pas visible (et les avis qui seront priorisé sont les avis les plus récents.
+
+
+
+
+----------MODIFICATION----------------
+dans la partie projet met les 3 boutons (tous, design graphique…) scrolable (si une partie est coupe avec la technique de scroll on verra ça)
+
+dans la partie compétences personnelles met aussi les pourcentages

@@ -26,6 +26,13 @@
   .font-display {
     font-family: 'Space Grotesk', sans-serif;
   }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 
   /* Effet glassmorphism pour la pill nav */
   .nav-glass {
@@ -186,6 +193,14 @@
   .star-btn:hover {
     transform: scale(1.15);
   }
+
+  /* Curseur clignotant de la machine à écrire (accueil) */
+  .typewriter-cursor {
+    animation: blink 0.9s steps(1) infinite;
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
 </style>
 </head>
 
@@ -283,8 +298,8 @@
           <h1 class="reveal font-display text-4xl md:text-6xl font-semibold leading-tight">
             Christ Mindele
           </h1>
-          <p class="reveal mt-3 font-display text-lg md:text-2xl text-ink/70 dark:text-fog/70">
-            Développeur web fullstack &amp; graphiste designer
+          <p class="reveal mt-3 font-display text-lg md:text-2xl text-amber min-h-[1.75em] md:min-h-[1.5em]">
+            <span id="typewriter"></span><span class="typewriter-cursor" aria-hidden="true">|</span>
           </p>
           <p class="reveal mt-5 text-ink/60 dark:text-fog/60 max-w-md mx-auto md:mx-0">
             Jeune passionné par l'informatique, je conçois des sites et applications web du design à la mise en production — formé en développement web à Kadea Academy et en design graphique à CECONTEC.
@@ -330,44 +345,63 @@
           <!-- Formation -->
           <div class="reveal">
             <h3 class="font-display text-xl font-semibold mb-6">Formation professionnelle</h3>
-            <ol class="relative border-l-2 border-ink/15 dark:border-fog/20 pl-7 space-y-9">
+            <div class="relative pl-7">
+              <div class="absolute left-[7px] top-1 bottom-1 w-0.5 bg-ink/15 dark:bg-fog/20"></div>
+              <ol class="space-y-9">
 
-              <li class="relative">
-                <span class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-amber ring-4 ring-cream dark:ring-night"></span>
-                <p class="text-xs font-display text-amber tracking-wide">En cours</p>
-                <p class="font-medium mt-1">Formation en développement web</p>
-                <p class="text-sm text-ink/60 dark:text-fog/60">Kadea Academy</p>
-              </li>
+                <li class="relative">
+                  <span class="absolute -left-7 top-1 w-4 h-4 rounded-full bg-amber ring-4 ring-cream dark:ring-night"></span>
+                  <p class="text-xs font-display text-amber tracking-wide">En cours</p>
+                  <p class="font-medium mt-1">Formation en développement web</p>
+                  <p class="text-sm text-ink/60 dark:text-fog/60">Kadea Academy</p>
+                </li>
 
-              <li class="relative">
-                <span class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-ink/25 dark:bg-fog/25 ring-4 ring-cream dark:ring-night"></span>
-                <p class="text-xs font-display text-ink/50 dark:text-fog/50 tracking-wide">2022</p>
-                <p class="font-medium mt-1">Certificat de participation en design graphique</p>
-                <p class="text-sm text-ink/60 dark:text-fog/60">Centre CECONTEC</p>
-              </li>
+                <li class="relative">
+                  <span class="absolute -left-7 top-1 w-4 h-4 rounded-full bg-amber ring-4 ring-cream dark:ring-night"></span>
+                  <p class="text-xs font-display text-ink/50 dark:text-fog/50 tracking-wide">2022</p>
+                  <p class="font-medium mt-1">Certificat de participation en design graphique</p>
+                  <p class="text-sm text-ink/60 dark:text-fog/60">Centre CECONTEC</p>
+                </li>
 
-              <li class="relative">
-                <span class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-ink/25 dark:bg-fog/25 ring-4 ring-cream dark:ring-night"></span>
-                <p class="text-xs font-display text-ink/50 dark:text-fog/50 tracking-wide">2021</p>
-                <p class="font-medium mt-1">Diplôme d'État en commercial et gestion</p>
-                <p class="text-sm text-ink/60 dark:text-fog/60">Groupe Scolaire Emmaüs</p>
-              </li>
+                <li class="relative">
+                  <span class="absolute -left-7 top-1 w-4 h-4 rounded-full bg-amber ring-4 ring-cream dark:ring-night"></span>
+                  <p class="text-xs font-display text-ink/50 dark:text-fog/50 tracking-wide">2021</p>
+                  <p class="font-medium mt-1">Diplôme d'État en commercial et gestion</p>
+                  <p class="text-sm text-ink/60 dark:text-fog/60">Groupe Scolaire Emmaüs</p>
+                </li>
 
-            </ol>
+              </ol>
+            </div>
           </div>
 
           <!-- Expérience -->
           <div class="reveal">
             <h3 class="font-display text-xl font-semibold mb-6">Expérience professionnelle</h3>
-            <ol class="relative border-l-2 border-ink/15 dark:border-fog/20 pl-7 space-y-9">
+            <div class="relative pl-7">
+              <div class="absolute left-[7px] top-1 bottom-1 w-0.5 bg-ink/15 dark:bg-fog/20"></div>
+              <ol class="space-y-9">
 
-              <li class="relative">
-                <span class="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-ink/25 dark:bg-fog/25 ring-4 ring-cream dark:ring-night"></span>
-                <p class="text-xs font-display text-ink/50 dark:text-fog/50 tracking-wide">Janvier 2024 — Septembre 2025</p>
-                <p class="font-medium mt-1">Chargé de conception design client</p>
-              </li>
+                <li class="relative">
+                  <span class="absolute -left-7 top-1 w-4 h-4 rounded-full bg-amber ring-4 ring-cream dark:ring-night"></span>
+                  <p class="text-xs font-display text-ink/50 dark:text-fog/50 tracking-wide">Janvier 2024 — Septembre 2025</p>
+                  <p class="font-medium mt-1">Chargé de conception design client</p>
+                </li>
 
-            </ol>
+              </ol>
+            </div>
+
+            <!-- Voir mon CV -->
+            <a
+              href="cv-christ-mindele.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-ink dark:bg-fog text-cream dark:text-night font-display font-medium text-sm hover:opacity-90 transition-opacity"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" />
+              </svg>
+              Voir mon CV en PDF
+            </a>
           </div>
 
         </div>
@@ -375,11 +409,48 @@
         <!-- ---- Compétences techniques ---- -->
         <div class="reveal mt-16">
           <h3 class="font-display text-xl font-semibold mb-6 text-center md:text-left">Compétences techniques</h3>
-          <div class="flex flex-wrap gap-3 justify-center md:justify-start">
-            <span class="px-4 py-2 rounded-full border border-ink/15 dark:border-fog/20 text-sm font-medium">Création de logos &amp; chartes graphiques</span>
-            <span class="px-4 py-2 rounded-full border border-ink/15 dark:border-fog/20 text-sm font-medium">Conception de supports de communication</span>
-            <span class="px-4 py-2 rounded-full border border-ink/15 dark:border-fog/20 text-sm font-medium">Conception de sites vitrines</span>
-            <span class="px-4 py-2 rounded-full border border-ink/15 dark:border-fog/20 text-sm font-medium">Création de maquettes web design</span>
+          <div class="space-y-5 max-w-xl mx-auto md:mx-0">
+
+            <div class="skill-bar">
+              <div class="flex justify-between text-sm mb-1.5">
+                <span class="font-medium">Création de logos &amp; chartes graphiques</span>
+                <span class="text-ink/50 dark:text-fog/50">90%</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
+                <div class="skill-fill h-full rounded-full bg-amber" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="skill-bar">
+              <div class="flex justify-between text-sm mb-1.5">
+                <span class="font-medium">Conception de supports de communication</span>
+                <span class="text-ink/50 dark:text-fog/50">80%</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
+                <div class="skill-fill h-full rounded-full bg-amber" style="width: 80%"></div>
+              </div>
+            </div>
+
+            <div class="skill-bar">
+              <div class="flex justify-between text-sm mb-1.5">
+                <span class="font-medium">Conception de sites vitrines</span>
+                <span class="text-ink/50 dark:text-fog/50">75%</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
+                <div class="skill-fill h-full rounded-full bg-amber" style="width: 75%"></div>
+              </div>
+            </div>
+
+            <div class="skill-bar">
+              <div class="flex justify-between text-sm mb-1.5">
+                <span class="font-medium">Création de maquettes web design</span>
+                <span class="text-ink/50 dark:text-fog/50">85%</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
+                <div class="skill-fill h-full rounded-full bg-amber" style="width: 85%"></div>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -389,44 +460,62 @@
           <div class="space-y-5 max-w-xl mx-auto md:mx-0">
 
             <div class="skill-bar">
-              <p class="text-sm font-medium mb-1.5">Adobe Photoshop</p>
+              <div class="flex justify-between text-sm mb-1.5">
+                <span class="font-medium">Adobe Photoshop</span>
+                <span class="text-ink/50 dark:text-fog/50">95%</span>
+              </div>
               <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
-                <div class="skill-fill h-full rounded-full" style="width: 95%; background-color: #31A8FF;"></div>
+                <div class="skill-fill h-full rounded-full" style="width: 95%; background-color: #4C6EF5;"></div>
               </div>
             </div>
 
             <div class="skill-bar">
-              <p class="text-sm font-medium mb-1.5">Adobe Illustrator</p>
+              <div class="flex justify-between text-sm mb-1.5">
+                <span class="font-medium">Adobe Illustrator</span>
+                <span class="text-ink/50 dark:text-fog/50">80%</span>
+              </div>
               <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
-                <div class="skill-fill h-full rounded-full" style="width: 80%; background-color: #FF9A00;"></div>
+                <div class="skill-fill h-full rounded-full" style="width: 80%; background-color: #4C6EF5;"></div>
               </div>
             </div>
 
             <div class="skill-bar">
-              <p class="text-sm font-medium mb-1.5">Figma</p>
+              <div class="flex justify-between text-sm mb-1.5">
+                <span class="font-medium">Figma</span>
+                <span class="text-ink/50 dark:text-fog/50">80%</span>
+              </div>
               <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
-                <div class="skill-fill h-full rounded-full" style="width: 80%; background-color: #A259FF;"></div>
+                <div class="skill-fill h-full rounded-full" style="width: 80%; background-color: #4C6EF5;"></div>
               </div>
             </div>
 
             <div class="skill-bar">
-              <p class="text-sm font-medium mb-1.5">Visual Studio Code</p>
+              <div class="flex justify-between text-sm mb-1.5">
+                <span class="font-medium">Visual Studio Code</span>
+                <span class="text-ink/50 dark:text-fog/50">85%</span>
+              </div>
               <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
-                <div class="skill-fill h-full rounded-full" style="width: 85%; background-color: #007ACC;"></div>
+                <div class="skill-fill h-full rounded-full" style="width: 85%; background-color: #4C6EF5;"></div>
               </div>
             </div>
 
             <div class="skill-bar">
-              <p class="text-sm font-medium mb-1.5">Git Bash</p>
+              <div class="flex justify-between text-sm mb-1.5">
+                <span class="font-medium">Git Bash</span>
+                <span class="text-ink/50 dark:text-fog/50">80%</span>
+              </div>
               <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
-                <div class="skill-fill h-full rounded-full" style="width: 80%; background-color: #F05033;"></div>
+                <div class="skill-fill h-full rounded-full" style="width: 80%; background-color: #4C6EF5;"></div>
               </div>
             </div>
 
             <div class="skill-bar">
-              <p class="text-sm font-medium mb-1.5">Microsoft Office</p>
+              <div class="flex justify-between text-sm mb-1.5">
+                <span class="font-medium">Microsoft Office</span>
+                <span class="text-ink/50 dark:text-fog/50">80%</span>
+              </div>
               <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
-                <div class="skill-fill h-full rounded-full" style="width: 80%; background-color: #D83B01;"></div>
+                <div class="skill-fill h-full rounded-full" style="width: 80%; background-color: #4C6EF5;"></div>
               </div>
             </div>
 
@@ -439,28 +528,40 @@
           <div class="space-y-5 max-w-xl mx-auto md:mx-0">
 
             <div class="skill-bar">
-              <p class="text-sm font-medium mb-1.5">Travail en équipe</p>
+              <div class="flex justify-between text-sm mb-1.5">
+                <span class="font-medium">Travail en équipe</span>
+                <span class="text-ink/50 dark:text-fog/50">90%</span>
+              </div>
               <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
                 <div class="skill-fill h-full rounded-full bg-amber" style="width: 90%"></div>
               </div>
             </div>
 
             <div class="skill-bar">
-              <p class="text-sm font-medium mb-1.5">Créativité</p>
+              <div class="flex justify-between text-sm mb-1.5">
+                <span class="font-medium">Créativité</span>
+                <span class="text-ink/50 dark:text-fog/50">90%</span>
+              </div>
               <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
                 <div class="skill-fill h-full rounded-full bg-amber" style="width: 90%"></div>
               </div>
             </div>
 
             <div class="skill-bar">
-              <p class="text-sm font-medium mb-1.5">Communication</p>
+              <div class="flex justify-between text-sm mb-1.5">
+                <span class="font-medium">Communication</span>
+                <span class="text-ink/50 dark:text-fog/50">85%</span>
+              </div>
               <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
                 <div class="skill-fill h-full rounded-full bg-amber" style="width: 85%"></div>
               </div>
             </div>
 
             <div class="skill-bar">
-              <p class="text-sm font-medium mb-1.5">Adaptabilité</p>
+              <div class="flex justify-between text-sm mb-1.5">
+                <span class="font-medium">Adaptabilité</span>
+                <span class="text-ink/50 dark:text-fog/50">80%</span>
+              </div>
               <div class="w-full h-2 rounded-full bg-ink/10 dark:bg-fog/10 overflow-hidden">
                 <div class="skill-fill h-full rounded-full bg-amber" style="width: 80%"></div>
               </div>
@@ -482,14 +583,14 @@
         </p>
 
         <!-- Filtres -->
-        <div class="reveal mt-10 flex flex-wrap gap-3 justify-center md:justify-start">
-          <button type="button" class="filter-btn active px-5 py-2.5 rounded-full border border-ink/15 dark:border-fog/20 text-sm font-display font-medium transition-colors" data-filter="all">
+        <div class="reveal mt-10 flex flex-nowrap gap-3 justify-start overflow-x-auto no-scrollbar -mx-6 px-6 md:mx-0 md:px-0">
+          <button type="button" class="filter-btn active shrink-0 px-5 py-2.5 rounded-full border border-ink/15 dark:border-fog/20 text-sm font-display font-medium transition-colors whitespace-nowrap" data-filter="all">
             Tous
           </button>
-          <button type="button" class="filter-btn px-5 py-2.5 rounded-full border border-ink/15 dark:border-fog/20 text-sm font-display font-medium transition-colors" data-filter="design">
+          <button type="button" class="filter-btn shrink-0 px-5 py-2.5 rounded-full border border-ink/15 dark:border-fog/20 text-sm font-display font-medium transition-colors whitespace-nowrap" data-filter="design">
             Design graphique
           </button>
-          <button type="button" class="filter-btn px-5 py-2.5 rounded-full border border-ink/15 dark:border-fog/20 text-sm font-display font-medium transition-colors" data-filter="web">
+          <button type="button" class="filter-btn shrink-0 px-5 py-2.5 rounded-full border border-ink/15 dark:border-fog/20 text-sm font-display font-medium transition-colors whitespace-nowrap" data-filter="web">
             Développement web
           </button>
         </div>
@@ -508,12 +609,19 @@
                     <h3 class="text-white font-display font-semibold text-sm truncate">Identité visuelle — Café Lumen</h3>
                     <p class="text-white/70 text-xs truncate">Logo &amp; charte graphique</p>
                   </div>
-                  <a href="#" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
-                    Voir le projet
-                    <svg class="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
-                    </svg>
-                  </a>
+                  <div class="shrink-0 flex items-center gap-2">
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Voir le dépôt GitHub" class="w-8 h-8 rounded-full bg-white/15 border border-white/25 flex items-center justify-center text-white hover:bg-white/25 transition-colors">
+                      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.48 0-.24-.01-1.04-.01-1.88-2.78.61-3.37-1.2-3.37-1.2-.45-1.18-1.11-1.49-1.11-1.49-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 015 0c1.9-1.33 2.74-1.05 2.74-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.35 4.79-4.58 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.48A10.02 10.02 0 0022 12.25C22 6.58 17.52 2 12 2z"/>
+                      </svg>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
+                      Voir le projet
+                      <svg class="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -534,12 +642,19 @@
                     <h3 class="text-white font-display font-semibold text-sm truncate">Site vitrine — Atelier Nova</h3>
                     <p class="text-white/70 text-xs truncate">Site responsive</p>
                   </div>
-                  <a href="#" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
-                    Voir le projet
-                    <svg class="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
-                    </svg>
-                  </a>
+                  <div class="shrink-0 flex items-center gap-2">
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Voir le dépôt GitHub" class="w-8 h-8 rounded-full bg-white/15 border border-white/25 flex items-center justify-center text-white hover:bg-white/25 transition-colors">
+                      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.48 0-.24-.01-1.04-.01-1.88-2.78.61-3.37-1.2-3.37-1.2-.45-1.18-1.11-1.49-1.11-1.49-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 015 0c1.9-1.33 2.74-1.05 2.74-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.35 4.79-4.58 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.48A10.02 10.02 0 0022 12.25C22 6.58 17.52 2 12 2z"/>
+                      </svg>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
+                      Voir le projet
+                      <svg class="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -561,12 +676,19 @@
                     <h3 class="text-white font-display font-semibold text-sm truncate">Maquette — App bancaire</h3>
                     <p class="text-white/70 text-xs truncate">UI design mobile</p>
                   </div>
-                  <a href="#" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
-                    Voir le projet
-                    <svg class="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
-                    </svg>
-                  </a>
+                  <div class="shrink-0 flex items-center gap-2">
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Voir le dépôt GitHub" class="w-8 h-8 rounded-full bg-white/15 border border-white/25 flex items-center justify-center text-white hover:bg-white/25 transition-colors">
+                      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.48 0-.24-.01-1.04-.01-1.88-2.78.61-3.37-1.2-3.37-1.2-.45-1.18-1.11-1.49-1.11-1.49-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 015 0c1.9-1.33 2.74-1.05 2.74-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.35 4.79-4.58 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.48A10.02 10.02 0 0022 12.25C22 6.58 17.52 2 12 2z"/>
+                      </svg>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
+                      Voir le projet
+                      <svg class="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -578,7 +700,7 @@
           <!-- Projet 4 — Web -->
           <div class="project-item" data-category="web">
             <div class="project-card relative rounded-2xl overflow-hidden aspect-[4/3]">
-              <img src="https://picsum.photos/seed/webapp2/800/600" alt="Projet application web" class="w-full h-full object-cover" />
+              <img src="assets/Kadea-chat.png" alt="Projet application web" class="w-full h-full object-cover" />
               <span class="category-tag absolute top-3 left-3 z-10 px-3 py-1 rounded-full bg-black/40 text-white text-[11px] font-display font-medium tracking-wide">Web</span>
               <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
                 <div class="backdrop-blur-md bg-white/10 border border-white/15 rounded-xl p-3 flex items-center justify-between gap-3">
@@ -586,12 +708,19 @@
                     <h3 class="text-white font-display font-semibold text-sm truncate">Clone interface — VidStream</h3>
                     <p class="text-white/70 text-xs truncate">Interface responsive</p>
                   </div>
-                  <a href="#" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
-                    Voir le projet
-                    <svg class="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
-                    </svg>
-                  </a>
+                  <div class="shrink-0 flex items-center gap-2">
+                    <a href="https://christmindele99.github.io/deploiement-clone-whatsapp/" target="_blank" rel="noopener noreferrer" aria-label="Voir le dépôt GitHub" class="w-8 h-8 rounded-full bg-white/15 border border-white/25 flex items-center justify-center text-white hover:bg-white/25 transition-colors">
+                      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.48 0-.24-.01-1.04-.01-1.88-2.78.61-3.37-1.2-3.37-1.2-.45-1.18-1.11-1.49-1.11-1.49-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 015 0c1.9-1.33 2.74-1.05 2.74-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.35 4.79-4.58 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.48A10.02 10.02 0 0022 12.25C22 6.58 17.52 2 12 2z"/>
+                      </svg>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
+                      Voir le projet
+                      <svg class="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -613,12 +742,19 @@
                     <h3 class="text-white font-display font-semibold text-sm truncate">Affiche évènementielle</h3>
                     <p class="text-white/70 text-xs truncate">Support de communication</p>
                   </div>
-                  <a href="#" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
-                    Voir le projet
-                    <svg class="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
-                    </svg>
-                  </a>
+                  <div class="shrink-0 flex items-center gap-2">
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Voir le dépôt GitHub" class="w-8 h-8 rounded-full bg-white/15 border border-white/25 flex items-center justify-center text-white hover:bg-white/25 transition-colors">
+                      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.48 0-.24-.01-1.04-.01-1.88-2.78.61-3.37-1.2-3.37-1.2-.45-1.18-1.11-1.49-1.11-1.49-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 015 0c1.9-1.33 2.74-1.05 2.74-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.35 4.79-4.58 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.48A10.02 10.02 0 0022 12.25C22 6.58 17.52 2 12 2z"/>
+                      </svg>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
+                      Voir le projet
+                      <svg class="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -631,7 +767,7 @@
           <!-- Projet 6 — Web -->
           <div class="project-item" data-category="web">
             <div class="project-card relative rounded-2xl overflow-hidden aspect-[4/3]">
-              <img src="assets/Kadea-chat.png" alt="Projet portfolio" class="w-full h-full object-cover" />
+              <img src="https://picsum.photos/seed/portfolio1/800/600" alt="Projet portfolio" class="w-full h-full object-cover" />
               <span class="category-tag absolute top-3 left-3 z-10 px-3 py-1 rounded-full bg-black/40 text-white text-[11px] font-display font-medium tracking-wide">Web</span>
               <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
                 <div class="backdrop-blur-md bg-white/10 border border-white/15 rounded-xl p-3 flex items-center justify-between gap-3">
@@ -639,12 +775,19 @@
                     <h3 class="text-white font-display font-semibold text-sm truncate">Portfolio personnel</h3>
                     <p class="text-white/70 text-xs truncate">HTML5 · Tailwind · JS</p>
                   </div>
-                  <a href="https://christmindele99.github.io/deploiement-clone-whatsapp/" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
-                    Voir le projet
-                    <svg class="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
-                    </svg>
-                  </a>
+                  <div class="shrink-0 flex items-center gap-2">
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Voir le dépôt GitHub" class="w-8 h-8 rounded-full bg-white/15 border border-white/25 flex items-center justify-center text-white hover:bg-white/25 transition-colors">
+                      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.48 0-.24-.01-1.04-.01-1.88-2.78.61-3.37-1.2-3.37-1.2-.45-1.18-1.11-1.49-1.11-1.49-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 015 0c1.9-1.33 2.74-1.05 2.74-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.35 4.79-4.58 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.48A10.02 10.02 0 0022 12.25C22 6.58 17.52 2 12 2z"/>
+                      </svg>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white text-ink text-xs font-display font-medium hover:bg-white/90 transition-colors group/btn">
+                      Voir le projet
+                      <svg class="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -699,12 +842,13 @@
 
             <button
               type="submit"
-              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-ink dark:bg-fog text-cream dark:text-night font-display font-medium text-sm hover:opacity-90 transition-opacity"
+              id="cf-submit"
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-ink dark:bg-fog text-cream dark:text-night font-display font-medium text-sm hover:opacity-90 transition-opacity disabled:opacity-60"
             >
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 004.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.81-.11a16.6 16.6 0 01-1.63-.6c-2.87-1.24-4.74-4.13-4.89-4.32-.14-.2-1.17-1.56-1.17-2.97 0-1.41.74-2.1 1-2.39.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.14-.28.29-.12.57.16.28.71 1.18 1.53 1.91 1.05.94 1.94 1.24 2.22 1.38.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.19-.28.37-.23.62-.14.26.09 1.63.77 1.91.91.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
               </svg>
-              Envoyer sur WhatsApp
+              Envoyer
             </button>
 
             <p id="cf-feedback" class="text-sm text-amber hidden"></p>
@@ -764,7 +908,7 @@
         <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-icon tech-badge" style="width:2.75rem;height:2.75rem;border-radius:9999px;background-color:#181717">GH</a>
         <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Behance" class="social-icon tech-badge" style="width:2.75rem;height:2.75rem;border-radius:9999px;background-color:#1769FF">Be</a>
         <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon tech-badge" style="width:2.75rem;height:2.75rem;border-radius:9999px;background-color:#0A66C2">in</a>
-        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon tech-badge" style="width:2.75rem;height:2.75rem;border-radius:9999px;background-color:#25D366">WA</a>
+        <a href="https://wa.me/243825564807" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon tech-badge" style="width:2.75rem;height:2.75rem;border-radius:9999px;background-color:#25D366">WA</a>
         <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon tech-badge" style="width:2.75rem;height:2.75rem;border-radius:9999px;background-color:#1877F2">f</a>
         <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" class="social-icon tech-badge" style="width:2.75rem;height:2.75rem;border-radius:9999px;background-color:#E60023">P</a>
       </div>
@@ -782,7 +926,6 @@
       <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
     </svg>
   </button>
-
-    <script src="js/index.js"></script>
+  <script src="js/index.js"></script>
 </body>
 </html>

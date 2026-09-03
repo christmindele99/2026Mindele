@@ -163,16 +163,18 @@ document.addEventListener('DOMContentLoaded', () => {
   );
   revealItems.forEach((el) => revealObserver.observe(el));
 
-  /* --- Formulaire de contact : envoi du message vers WhatsApp --- */
-  // Remplace ce numéro par le tien, au format international sans "+", "espaces" ni "00"
-  // Exemple : pour +243 812 345 678 -> "243812345678"
-  const WHATSAPP_NUMBER = '243825564807';
+  /* --- Formulaire de contact : envoi direct par email (sans ouvrir de nouvel onglet) --- */
+  // Utilise le service gratuit FormSubmit (https://formsubmit.co) : aucune clé requise.
+  // ⚠️ Première utilisation : FormSubmit envoie un email de confirmation à l'adresse
+  // ci-dessous ; il faut cliquer une fois sur le lien reçu pour activer la réception.
+  const CONTACT_EMAIL = 'christmindele99@gmail.com';
 
   const contactForm = document.getElementById('contact-form');
   const cfFeedback = document.getElementById('cf-feedback');
+  const cfSubmit = document.getElementById('cf-submit');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const name = document.getElementById('cf-name').value.trim();
@@ -185,14 +187,34 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const text = `Bonjour, je m'appelle ${name} (${email}).\n\n${message}`;
-      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
-
-      cfFeedback.textContent = 'Ouverture de WhatsApp…';
+      cfSubmit.disabled = true;
+      cfFeedback.textContent = 'Envoi en cours…';
       cfFeedback.classList.remove('hidden');
 
-      window.open(waUrl, '_blank', 'noopener,noreferrer');
-      contactForm.reset();
+      try {
+        const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            message,
+            _subject: `Nouveau message depuis le portfolio — ${name}`,
+          }),
+        });
+
+        if (!response.ok) throw new Error('Envoi échoué');
+
+        cfFeedback.textContent = 'Message envoyé, merci ! Je reviens vers vous rapidement.';
+        contactForm.reset();
+      } catch (err) {
+        cfFeedback.textContent = "L'envoi a échoué. Réessaie dans un instant.";
+      } finally {
+        cfSubmit.disabled = false;
+      }
     });
   }
 
@@ -225,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderReviews() {
     const list = document.getElementById('reviews-list');
     if (!list) return;
-    const reviews = getReviews();
+    const reviews = getReviews().slice(0, 4); // 4 avis les plus récents affichés au maximum
 
     list.innerHTML = reviews
       .map((r) => {
@@ -307,5 +329,41 @@ document.addEventListener('DOMContentLoaded', () => {
   const footerYear = document.getElementById('footer-year');
   if (footerYear) {
     footerYear.textContent = new Date().getFullYear();
+  }
+
+  /* --- Machine à écrire (accueil) : alterne entre les deux intitulés à l'infini --- */
+  const typewriterEl = document.getElementById('typewriter');
+  if (typewriterEl) {
+    const phrases = ['Développeur web fullstack', 'Graphiste designer'];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeLoop() {
+      const current = phrases[phraseIndex];
+
+      if (!isDeleting) {
+        charIndex++;
+        typewriterEl.textContent = current.slice(0, charIndex);
+        if (charIndex === current.length) {
+          isDeleting = true;
+          setTimeout(typeLoop, 1400); // pause avant d'effacer
+          return;
+        }
+        setTimeout(typeLoop, 65);
+      } else {
+        charIndex--;
+        typewriterEl.textContent = current.slice(0, charIndex);
+        if (charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          setTimeout(typeLoop, 400); // pause avant d'écrire la suivante
+          return;
+        }
+        setTimeout(typeLoop, 35);
+      }
+    }
+
+    typeLoop();
   }
 });
